@@ -14,7 +14,7 @@
     <table>
     <tr>
         <td><form:label path="id"><spring:message code="label.id"/></form:label></td>
-        <td><form:input path="id" disabled="true"/></td>
+        <td><form:input path="id" readonly="true"/></td>
     </tr>
     <tr>
         <td><form:label path="firstname"><spring:message code="label.firstname"/></form:label></td>
@@ -61,12 +61,13 @@
         <td>${emp.lastname}, ${emp.firstname} </td>
         <td>${emp.email}</td>
         <td>${emp.telephone}</td>
-        <td><a href="/Spring3HibernateIntegration/view/${emp.id}">update</a></td>
+        <td><a href="/Spring3HibernateIntegration/update/${emp.id}">update</a></td>
         <td><a href="/Spring3HibernateIntegration/delete/${emp.id}">delete</a></td>
     </tr>
 </c:forEach>
 </table>
 </c:if>
- 
+<br/>
+<a href="/Spring3HibernateIntegration/">Home Page</a>
 </body>
 </html>

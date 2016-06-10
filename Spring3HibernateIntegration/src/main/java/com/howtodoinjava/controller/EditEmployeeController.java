@@ -60,7 +60,7 @@ public class EditEmployeeController {
 	}
 
 	
-	@RequestMapping("view/{employeeId}")
+	@RequestMapping("update/{employeeId}")
 	public String viewEmplyee(@PathVariable("employeeId") Integer employeeId, ModelMap map)
 	{
 		map.addAttribute("employee", employeeManager.getEmployee(employeeId));
