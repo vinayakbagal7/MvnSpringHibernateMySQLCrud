@@ -10,12 +10,7 @@
 <h2>Employee Management Screen : Spring 3 hibernate integration example on www.howtodoinjava.com</h2>
  
 <form:form method="post" action="/Spring3HibernateIntegration/add" commandName="employee">
- 
     <table>
-    <tr>
-        <td><form:label path="id"><spring:message code="label.id"/></form:label></td>
-        <td><form:input path="id" readonly="true"/></td>
-    </tr>
     <tr>
         <td><form:label path="firstname"><spring:message code="label.firstname"/></form:label></td>
         <td><form:input path="firstname" /></td>
@@ -44,7 +39,8 @@
       		</c:choose>
         </td>
     </tr>
-</table> 
+</table>
+<form:hidden path="id" readonly="true"/>
 </form:form>
      
 <h3>Employees</h3>
