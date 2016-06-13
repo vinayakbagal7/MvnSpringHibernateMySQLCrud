@@ -36,18 +36,7 @@ public class EditEmployeeController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addEmployee(@ModelAttribute(value="employee") EmployeeEntity employee, BindingResult result) 
 	{
-		List<Integer> listIds = new ArrayList<Integer>();
-		List<EmployeeEntity> listEmp = employeeManager.getAllEmployees();
-		
-		for (EmployeeEntity emp : listEmp) {
-			listIds.add(emp.getId());
-		}
-		if( listIds.contains(employee.getId()) ) {
-			employeeManager.updateEmployee(employee);
-		} else {
-			System.out.println("insert Employee");
-			employeeManager.addEmployee(employee);
-		}
+		employeeManager.addEmployee(employee);
 		return "redirect:/";
 	}
 
@@ -61,7 +50,7 @@ public class EditEmployeeController {
 
 	
 	@RequestMapping("update/{employeeId}")
-	public String viewEmplyee(@PathVariable("employeeId") Integer employeeId, ModelMap map)
+	public String updateEmplyee(@PathVariable("employeeId") Integer employeeId, ModelMap map)
 	{
 		map.addAttribute("employee", employeeManager.getEmployee(employeeId));
 		map.addAttribute("employeeList", employeeManager.getAllEmployees());

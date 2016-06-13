@@ -16,7 +16,7 @@ public class EmployeeDaoImpl implements EmployeeDAO  {
 	
 	@Override
 	public void addEmployee(EmployeeEntity employee) {
-		this.sessionFactory.getCurrentSession().save(employee);
+		this.sessionFactory.getCurrentSession().merge(employee);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -36,10 +36,9 @@ public class EmployeeDaoImpl implements EmployeeDAO  {
 	
 	@Override
 	public EmployeeEntity getEmployee(Integer employeeId) {
-		System.out.println("Get Emp: "+employeeId);
 		EmployeeEntity employee = (EmployeeEntity) sessionFactory.getCurrentSession().load(
 				EmployeeEntity.class, employeeId);
-		System.out.println("Get Emp: "+employee.getFirstname());
+		employee.getFirstname();
 		return employee;
 	}
 
